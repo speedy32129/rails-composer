@@ -2617,7 +2617,7 @@ if prefer :deployment, 'heroku'
   say_wizard "installing gems for Heroku"
   if prefer :database, 'sqlite'
     gsub_file 'Gemfile', /.*gem 'sqlite3'\n/, ''
-    add_gem 'sqlite3', group: [:development, :test]
+    add_gem 'sqlite3', '1.3.13', group: [:development, :test]
     add_gem 'pg', group: :production
   end
 end
