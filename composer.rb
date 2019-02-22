@@ -1744,6 +1744,7 @@ end
 
 ## Database Adapter
 gsub_file 'Gemfile', /gem 'sqlite3'\n/, '' unless prefer :database, 'sqlite'
+gsub_file 'Gemfile', /gem 'sqlite3'\n/, "gem 'sqlite3', '1.3.13'\n"
 gsub_file 'Gemfile', /gem 'pg'.*/, ''
 if prefer :database, 'postgresql'
   if Rails::VERSION::MAJOR < 5
