@@ -492,7 +492,7 @@ if prefer :apps4, 'learn-rails'
   add_gem 'gibbon'
   add_gem 'minitest-spec-rails', :group => :test
   gsub_file 'Gemfile', /gem 'sqlite3'\n/, ''
-  add_gem 'sqlite3', :group => :development
+  add_gem 'sqlite3', '1.3.13', :group => :development
 
   stage_three do
     say_wizard "recipe stage three"
