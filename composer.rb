@@ -1413,9 +1413,9 @@ end
 
 ## Form Builder
 ## (no simple_form for Bootstrap 4 yet)
-unless prefs[:frontend] == 'bootstrap4'
+#unless prefs[:frontend] == 'bootstrap4'
   prefs[:form_builder] = multiple_choice "Use a form builder gem?", [["None", "none"], ["SimpleForm", "simple_form"]] unless prefs.has_key? :form_builder
-end
+#end
 
 ## Pages
 if recipes.include? 'pages'
