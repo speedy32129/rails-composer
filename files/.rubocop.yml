@@ -1,5 +1,9 @@
 AllCops:
-  RunRailsCops: true
+  # Depreciated RunRailsCops - start
+  # RunRailsCops: true
+  Rails:
+    Enabled: true
+  # Depreciated RunRailsCops - end
   Include:
     - '**/Gemfile'
     - '**/Rakefile'
