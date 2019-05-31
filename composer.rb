@@ -492,7 +492,7 @@ if prefer :apps4, 'learn-rails'
   add_gem 'gibbon'
   add_gem 'minitest-spec-rails', :group => :test
   gsub_file 'Gemfile', /gem 'sqlite3'\n/, ''
-  add_gem 'sqlite3', :group => :development
+  add_gem 'sqlite3', '1.3.13', :group => :development
 
   stage_three do
     say_wizard "recipe stage three"
@@ -1744,6 +1744,7 @@ end
 
 ## Database Adapter
 gsub_file 'Gemfile', /gem 'sqlite3'\n/, '' unless prefer :database, 'sqlite'
+gsub_file 'Gemfile', /gem 'sqlite3'\n/, "gem 'sqlite3', '1.3.13'\n"
 gsub_file 'Gemfile', /gem 'pg'.*/, ''
 if prefer :database, 'postgresql'
   if Rails::VERSION::MAJOR < 5
@@ -2617,7 +2618,7 @@ if prefer :deployment, 'heroku'
   say_wizard "installing gems for Heroku"
   if prefer :database, 'sqlite'
     gsub_file 'Gemfile', /.*gem 'sqlite3'\n/, ''
-    add_gem 'sqlite3', group: [:development, :test]
+    add_gem 'sqlite3', '1.3.13', group: [:development, :test]
     add_gem 'pg', group: :production
   end
 end

@@ -1,5 +1,7 @@
 h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Composer)! Rails Composer
 
+Forked to solve https://github.com/rails/rails/issues/35161
+
 An application template that creates starter applications for Rails.
 
 It's the Rails generator on steroids.
