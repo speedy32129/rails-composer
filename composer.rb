@@ -1413,9 +1413,9 @@ end
 
 ## Form Builder
 ## (no simple_form for Bootstrap 4 yet)
-unless prefs[:frontend] == 'bootstrap4'
+#unless prefs[:frontend] == 'bootstrap4'
   prefs[:form_builder] = multiple_choice "Use a form builder gem?", [["None", "none"], ["SimpleForm", "simple_form"]] unless prefs.has_key? :form_builder
-end
+#end
 
 ## Pages
 if recipes.include? 'pages'
@@ -1804,7 +1804,7 @@ case prefs[:frontend]
   when 'bootstrap3'
     add_gem 'bootstrap-sass'
   when 'bootstrap4'
-    add_gem 'bootstrap', '~> 4.0.0'
+    add_gem  'bootstrap'
   when 'foundation4'
     add_gem 'zurb-foundation', '~> 4.3.2'
     add_gem 'compass-rails', '~> 1.1.2'
@@ -1938,7 +1938,8 @@ stage_two do
         say_wizard "recipe installing simple_form for use with Bootstrap"
         generate 'simple_form:install --bootstrap'
       when 'bootstrap4'
-        say_wizard "simple_form not yet available for use with Bootstrap 4"
+        say_wizard "recipe installing simple_form for use with Bootstrap"
+        generate 'simple_form:install --bootstrap'
       when 'foundation5'
         say_wizard "recipe installing simple_form for use with Zurb Foundation"
         generate 'simple_form:install --foundation'
@@ -2531,7 +2532,7 @@ FILE
       when 'bootstrap3'
         generate 'layout:devise bootstrap3 -f'
       when 'bootstrap4'
-        generate 'layout:devise bootstrap3 -f'
+        generate 'layout:devise bootstrap4 -f'
       when 'foundation5'
         generate 'layout:devise foundation5 -f'
     end
@@ -2761,10 +2762,10 @@ end
 ## JSRUNTIME
 case RbConfig::CONFIG['host_os']
   when /linux/i
-    prefs[:jsruntime] = yes_wizard? "Add 'therubyracer' JavaScript runtime (for Linux users without node.js)?" unless prefs.has_key? :jsruntime
+    prefs[:jsruntime] = yes_wizard? "Add 'mini_racer' JavaScript runtime (for Linux users without node.js)?" unless prefs.has_key? :jsruntime
     if prefs[:jsruntime]
-      say_wizard "recipe adding 'therubyracer' JavaScript runtime gem"
-      add_gem 'therubyracer', :platform => :ruby
+      say_wizard "recipe adding 'mini_racer' JavaScript runtime gem"
+      add_gem 'mini_racer', :platform => :ruby
     end
 end
 
